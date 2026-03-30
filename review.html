@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Review</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">Review Exam</div>
+
+    <div id="reviewContainer"></div>
+
+    <script src="data.js"></script>
+    <script>
+        let exam = exams[localStorage.getItem("examType")];
+        let answers = JSON.parse(localStorage.getItem("answers"));
+
+        let html = "";
+
+        exam.forEach((q, index) => {
+
+            html += `
+    <div class="exam-box">
+        <div class="top">
+            <span>Question ${index + 1} / ${exam.length}</span>
+        </div>
+
+        <h2>${q.question}</h2>
+    `;
+
+            q.options.forEach((opt, i) => {
+
+                let className = "option";
+                let icon = "";
+
+                // đúng
+                if (i === q.answer) {
+                    className += " correct";
+                    icon = " ✔";
+                }
+
+                // user chọn sai
+                if (i === answers[index] && i !== q.answer) {
+                    className += " wrong";
+                    icon = " ✖";
+                }
+
+                html += `
+            <div class="${className}">
+                ${opt} ${icon}
+            </div>
+        `;
+            });
+
+            html += `</div>`;
+        });
+
+        document.getElementById("reviewContainer").innerHTML = html;
+    </script>
+    <div style="text-align:center; margin: 30px;">
+        <button onclick="goHome()" class="back-btn">Back to Home</button>
+    </div>
+
+    <script>
+        function goHome() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

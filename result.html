@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">Java Basic Exam</div>
+
+    <div class="result-box">
+        <h1>🎉 Exam Completed!</h1>
+        <p id="score"></p>
+        <p id="percent"></p>
+
+        <button onclick="review()">Review Exam</button>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        let exam = exams[localStorage.getItem("examType")];
+        let ans = JSON.parse(localStorage.getItem("answers"));
+
+        let correct = 0;
+        exam.forEach((q, i) => {
+            if (q.answer === ans[i]) correct++;
+        });
+
+        document.getElementById("score").innerText =
+            `Your Score: ${correct} / ${exam.length}`;
+
+        document.getElementById("percent").innerText =
+            `Percentage: ${correct * 10}%`;
+
+        function review() {
+            window.location.href = "review.html";
+        }
+    </script>
+
+</body>
+
+</html>

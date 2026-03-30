@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f4f6f9;
+}
+
+/* HEADER */
+.header {
+    background: #1f2937;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* FILTER */
+.filter {
+    text-align: center;
+    margin: 20px;
+}
+
+.filter button {
+    margin: 5px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #2563eb;
+    background: white;
+    color: #2563eb;
+}
+
+.filter .active {
+    background: #2563eb;
+    color: white;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 20px 80px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+/* EXAM */
+.exam-box {
+    width: 600px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+#progressBar {
+    height: 10px;
+    background: #2563eb;
+    border-radius: 10px;
+    width: 0%;
+}
+
+/* OPTIONS */
+.option {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.option.selected {
+    background: #2563eb;
+    color: white;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.prev {
+    background: #9ca3af;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+.next {
+    background: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+/* RESULT */
+.result-box {
+    width: 500px;
+    margin: 80px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.result-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+/* ANSWER FEEDBACK */
+.correct {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    font-weight: bold;
+}
+
+.wrong {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #7f1d1d;
+    font-weight: bold;
+}
+
+.back-btn {
+    padding: 10px 20px;
+    background: #374151;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    background: #111827;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tech Skill Exams</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">Tech Skill Exams</div>
+
+    <div class="filter">
+        <button class="active" onclick="filterExam('all')">All</button>
+        <button onclick="filterExam('java')">Java</button>
+        <button onclick="filterExam('python')">Python</button>
+        <button onclick="filterExam('cpp')">C++</button>
+    </div>
+
+    <div class="grid">
+
+        <!-- Java -->
+        <div class="card" data-type="java">
+            <h3>Java Basic</h3>
+            <p>Test your fundamental knowledge of Java syntax and concepts.</p>
+            <button onclick="start('java_basic')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="java">
+            <h3>Java Intermediate</h3>
+            <p>Challenge yourself with object-oriented and collection-based questions.</p>
+            <button onclick="start('java_intermediate')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="java">
+            <h3>Java Advanced</h3>
+            <p>Test advanced Java skills like Streams, Concurrency, and Spring Boot.</p>
+            <button onclick="start('java_advanced')">Take Exam</button>
+        </div>
+
+        <!-- Python -->
+        <div class="card" data-type="python">
+            <h3>Python Basic</h3>
+            <p>Start your Python journey with variables, loops, and conditions.</p>
+            <button onclick="start('python_basic')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="python">
+            <h3>Python Intermediate</h3>
+            <p>Explore data structures, functions, and modules in Python.</p>
+            <button onclick="start('python_intermediate')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="python">
+            <h3>Python Advanced</h3>
+            <p>Master advanced Python topics including OOP and decorators.</p>
+            <button onclick="start('python_advanced')">Take Exam</button>
+        </div>
+
+        <!-- C++ -->
+        <div class="card" data-type="cpp">
+            <h3>C++ Basic</h3>
+            <p>Learn the basics of C++ syntax, variables, and control structures.</p>
+            <button onclick="start('cpp_basic')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="cpp">
+            <h3>C++ Intermediate</h3>
+            <p>Improve your understanding of classes, pointers, and templates.</p>
+            <button onclick="start('cpp_intermediate')">Take Exam</button>
+        </div>
+
+        <div class="card" data-type="cpp">
+            <h3>C++ Advanced</h3>
+            <p>Dive into memory management, STL, and advanced object-oriented design.</p>
+            <button onclick="start('cpp_advanced')">Take Exam</button>
+        </div>
+
+    </div>
+
+    <script>
+        function start(type) {
+            localStorage.setItem("examType", type);
+            window.location.href = "exam.html";
+        }
+
+        function filterExam(type) {
+            let cards = document.querySelectorAll(".card");
+            let buttons = document.querySelectorAll(".filter button");
+
+            // active button
+            buttons.forEach(btn => btn.classList.remove("active"));
+            event.target.classList.add("active");
+
+            cards.forEach(card => {
+                if (type === "all") {
+                    card.style.display = "block";
+                } else {
+                    card.style.display =
+                        card.dataset.type === type ? "block" : "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
