@@ -8,7 +8,7 @@
 
 <body>
 
-    <div class="header">Java Basic Exam</div>
+    <div class="header" id="title"></div>
 
     <div class="result-box">
         <h1>🎉 Exam Completed!</h1>
@@ -37,6 +37,17 @@
         function review() {
             window.location.href = "review.html";
         }
+
+        const examType = localStorage.getItem("examType");
+
+        // convert key -> title đẹp
+        function formatTitle(type) {
+            return type
+                .replace("_", " ")
+                .replace(/\b\w/g, c => c.toUpperCase()) + " Exam";
+        }
+
+        document.getElementById("title").innerText = formatTitle(examType);
     </script>
 
 </body>

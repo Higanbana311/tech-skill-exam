@@ -8,7 +8,7 @@
 
 <body>
 
-    <div class="header">Java Basic Exam</div>
+    <div class="header" id="title"></div>
 
     <div class="exam-box">
 
@@ -69,6 +69,13 @@
         }
 
         function next() {
+
+            // ❗ chưa chọn đáp án
+            if (answers[current] === null) {
+                alert("Please select an answer before continuing!");
+                return;
+            }
+
             if (current < exam.length - 1) {
                 current++;
                 load();
@@ -86,6 +93,17 @@
         }
 
         load();
+
+        const examType = localStorage.getItem("examType");
+
+        // convert key -> title đẹp
+        function formatTitle(type) {
+            return type
+                .replace("_", " ")
+                .replace(/\b\w/g, c => c.toUpperCase()) + " Exam";
+        }
+
+        document.getElementById("title").innerText = formatTitle(examType);
     </script>
 
 </body>
